@@ -1,9 +1,9 @@
-name: generate 3d graph
+name: Generate 3D Contribution Graph
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
-  workflow_dispatch:
 
 jobs:
   build:
@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: yoshi389111/github-profile-3d-contrib@0.7.1
+      - name: generate graph
+        uses: yoshi389111/github-profile-3d-contrib@0.7.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: jyx-07
